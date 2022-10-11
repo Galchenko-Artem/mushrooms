@@ -1,0 +1,124 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input{
+  height: 45px;
+  width: 100%;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 16px;
+  border: 2px solid #E9F2FF;
+  border-radius: 5px;
+  padding-left: 25px;
+  background: rgba( 0,0,0,.6);
+}
+.form-title{
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 23px;
+  margin-bottom: 38px;
+  display: flex;
+  justify-content: center;
+}
+.register-form-container{
+  position: relative;
+  z-index: 2;
+  max-width: 415px;
+  width: 100%;
+  background-image: url(../img/photo.jpg);
+  background-size: 415px;
+  box-shadow: 0px 6px 50px rgba(217, 229, 255, 0.7);
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 38px;
+  padding-bottom: 38px;
+  animation-name: fadeForm;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeForm{
+  0%{
+    opacity: 0;
+  }
+  25%{
+    opacity: .25;
+  }
+  50%{
+    opacity: .5;
+  }
+  75%{
+    opacity: .75;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.form-field{
+  margin-bottom: 13px;
+  
+}
+.button{
+  font-weight: bold;
+  font-size: 14px;
+  display: block;
+  height: 45px;
+  background: rgba( 0,0,0,.6);
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 45px;
+  cursor: pointer;
+  width: 150px;
+}
+.button:hover{
+  background-color: #0D6CF2;
+}
+a.button{
+  text-decoration: none;
+}
+form{
+  background: #f1f5fe;
+  height: 94vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+input:focus{
+  outline: none;
+  border: 2px solid #c1d8fd;
+
+}
+.form-buttons{
+  display: flex;
+  justify-content: center;
+}
+.login-form-container{
+  position: relative;
+  z-index: 2;
+  max-width: 415px;
+  width: 100%;
+  background-image: url(../img/photo4.jpg);
+  background-size: 415px;
+  box-shadow: 0px 6px 50px rgba(217, 229, 255, 0.7);
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 38px;
+  padding-bottom: 38px;
+  animation-name: fadeForm;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}

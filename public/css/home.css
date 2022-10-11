@@ -1,0 +1,87 @@
+.container-fluid {
+    background-image: url(../img/Снимок\ экрана\ от\ 2022-10-06\ 15-34-07.jpg);
+    height: 80px;
+    background-size: 400px;
+    margin-top: 0;
+  }
+  
+  .navbar-brand {
+    color: #ffffff;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .nav-link {
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  body {
+    background: #f1f5fe;
+  }
+  h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  .map {
+    margin-top: 70px;
+  }
+  .info {
+    background-image: url(../img/photo9.jpg);
+    background-size: 640px;
+    width: 700px;
+    height: 550px;
+    position: absolute;
+    left: 1100px;
+    bottom: 150px;
+    border-radius: 15px;
+    box-shadow: 0px 6px 50px rgba(217, 229, 255, 0.7);
+    animation-name: fadeForm;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  @keyframes fadeForm{
+    0%{
+      opacity: 0;
+    }
+    25%{
+      opacity: .25;
+    }
+    50%{
+      opacity: .5;
+    }
+    75%{
+      opacity: .75;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+  p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17.5px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1400px){
+    .info{
+    position: absolute;
+    left: 50px;
+    top: 900px;
+
+    }
+    .map{
+      display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    align-items: center;
+    }
+  
+  }

@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const {name, email, password } = req.body;
+  const { email, password } = req.body;
   try {
     const user = await User.findOne({ where: { email } });
     if(!user){

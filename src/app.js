@@ -22,9 +22,30 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const sessionConfig = {
+    name: 'TeaParty',
+    store: new FileStore(),
+    secret: SESSION_SECRET ?? 'party',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 10,
+      httpOnly: true, 
+    },
+  };
 
-// app.use(session(sessionConfig));
+app.use(session(sessionConfig));
 
+app.get('/logout', (req, res) =>{
+    if (req.session.newUser){
+      req.session.destroy(() => {
+        res.clearCookie('TeaParty');
+        res.redirect('/');
+      });
+    }else{
+      res.redirect('/login');
+    }
+  });
 
 app.use('/', homeRouter);
 app.use('/registration', regRouter);
