@@ -1,5 +1,6 @@
 .container-fluid {
-    background-image: url(../img/Снимок\ экрана\ от\ 2022-10-06\ 15-34-07.jpg);
+    /* background-image: url(../img/Снимок\ экрана\ от\ 2022-10-06\ 15-34-07.jpg); */
+    background-color:greenyellow;
     height: 80px;
     background-size: 400px;
     margin-top: 0;
@@ -28,7 +29,8 @@
     margin-top: 70px;
   }
   .info {
-    background-image: url(../img/photo9.jpg);
+    /* background-image: url(../img/photo9.jpg); */
+    background-color: green;
     background-size: 640px;
     width: 700px;
     height: 550px;

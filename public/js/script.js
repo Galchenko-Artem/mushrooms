@@ -40,7 +40,7 @@ ymaps.ready(() => {
               iconContentLayout: MyIconContentLayout,
           });
           mark.events.add('click', () => {
-            window.location.assign(`descr/${tea.id}`);
+            window.location.assign(`descr/${mushroom.id}`);
           });
           myMap.geoObjects.add(mark);
         });

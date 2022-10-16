@@ -15,6 +15,7 @@ const app = express();
 const homeRouter = require('./routes/homeRout');
 const regRouter = require('./routes/regRout');
 const loginRouter = require('./routes/logRout');
+const personalAccount = require('./routes/personalАccount');
 
 app.use(morgan('dev'));
 
@@ -23,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const sessionConfig = {
-    name: 'TeaParty',
+    name: 'MushroomsParty',
     store: new FileStore(),
     secret: SESSION_SECRET ?? 'party',
     resave: false,
@@ -39,7 +40,7 @@ app.use(session(sessionConfig));
 app.get('/logout', (req, res) =>{
     if (req.session.newUser){
       req.session.destroy(() => {
-        res.clearCookie('TeaParty');
+        res.clearCookie('MushroomsParty');
         res.redirect('/');
       });
     }else{
@@ -50,6 +51,7 @@ app.get('/logout', (req, res) =>{
 app.use('/', homeRouter);
 app.use('/registration', regRouter);
 app.use('/login', loginRouter);
+app.use('/personal', personalAccount)
 
 
 app.listen(PORT, async () => {

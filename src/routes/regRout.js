@@ -15,17 +15,23 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
   const { name, email, password } = req.body;
   try {
-    const user = await User.findOne({ where: { email }});
-    if(user){
-      res.redirect('/login')
-      return
+    const checkUser = await User.findOne({ where: { email }});
+    const checkEmail = await User.findOne({ where: { name }});
+    if(checkUser){
+      return res.send('Имя уже используется');
     }
-    const hash = await bcrypt.hash(password, 10);
-    const newUser = await User.create({ name, email, password: hash });
-    req.session.newUser = newUser.name;
-    req.session.save(() => {
-      res.redirect('/');
-    })
+    if(checkEmail){
+      return res.send('Почта уже используется');
+    }
+    if(!checkEmail && !checkUser){
+      const hash = await bcrypt.hash(password, 10);
+      const newUser = await User.create({ name, email, password: hash });
+      req.session.newUser = newUser.name;
+      req.session.user_id = newUser.id;
+      req.session.save(() => {
+        res.redirect('/');
+      })
+    }
   } catch (error) {
     res.send(`Error ------> ${error}`);
   }

@@ -16,22 +16,23 @@ router.post('/', async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ where: { email } });
-    if(!user){
-      res.redirect('/registration')
-      return
-    }
-    const passCheck = await bcrypt.compare(password, user.password);
-    if(passCheck){
-      req.session.newUser = user.name;
-      req.session.save(() => {
-        res.redirect('/');
-      });
-    }else{
-      res.redirect('/login')
+    if (user) {
+      const checkPassword = await bcrypt.compare(password, user.password);
+      if (checkPassword) {
+        req.session.newUser = user.name;
+        req.session.user_id = user.id;
+        req.session.save(() => {
+          res.redirect('/')
+        });
+      } else {
+        res.send('Неверный пароль');
+      }
+    } else {
+      res.send('Почта не найдена');
     }
   } catch (error) {
-    res.send(`Error ------> ${error}`);
+    console.log(error);
   }
-})
+});
 
 module.exports = router;
